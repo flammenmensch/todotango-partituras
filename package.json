@@ -1,0 +1,47 @@
+{
+  "name": "todotango-partituras",
+  "version": "0.1.0",
+  "description": "Tango sheet music web application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flammenmensch/todotango-partituras.git"
+  },
+  "keywords": [
+    "tango",
+    "piano",
+    "sheet",
+    "music"
+  ],
+  "author": "Flammenmensch <maleventum@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flammenmensch/todotango-partituras/issues"
+  },
+  "homepage": "https://github.com/flammenmensch/todotango-partituras",
+  "dependencies": {
+    "body-parser": "1.13.3",
+    "compression": "1.5.2",
+    "express": "4.13.3",
+    "request": "2.61.0"
+  },
+  "devDependencies": {
+    "babelify": "6.2.0",
+    "browserify": "11.0.1",
+    "del": "1.2.1",
+    "gulp": "3.9.0",
+    "gulp-copy": "0.0.2",
+    "gulp-eslint": "1.0.0",
+    "react": "0.13.3",
+    "react-redux": "1.0.0",
+    "react-router": "0.13.3",
+    "reactify": "1.1.1",
+    "redux": "1.0.1",
+    "run-sequence": "1.1.2",
+    "vinyl-buffer": "1.0.0",
+    "vinyl-source-stream": "1.1.0"
+  }
+}

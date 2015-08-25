@@ -3,3 +3,5 @@
 node_modules
 *.log
 *.zip
+public/bundle.js
+public/styles.css
