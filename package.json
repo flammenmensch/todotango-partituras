@@ -29,7 +29,9 @@
     "compression": "1.5.2",
     "elasticsearch": "8.1.0",
     "express": "4.13.3",
+    "gm": "1.19.0",
     "node-parse-api": "0.3.8",
+    "pdfkit": "0.7.1",
     "request": "2.61.0"
   },
   "devDependencies": {

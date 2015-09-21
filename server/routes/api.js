@@ -1,7 +1,8 @@
 "use strict";
 
-var router = require('express').Router();
-var todotangoService = require('../services/todotango-service');
+const router = require('express').Router();
+const pdfService = require('../services/pdf-service');
+const todotangoService = require('../services/todotango-service');
 
 router.route('/search')
   .get(function(req, res, next) {
@@ -28,6 +29,27 @@ router.route('/partitura/:id')
       })
       .catch(function(err) {
         next(new Error('Partitura not found'));
+      });
+  });
+
+router.route('/partitura/:id/export')
+  .get(function(req, res, next) {
+    var id = req.params.id;
+
+    todotangoService
+      .getPartituraById(id)
+      .then(response => pdfService.generate(response.title, response.genre, response.scores.pages))
+      .then(doc => {
+        res.writeHead(200, {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/pdf',
+          'Content-Disposition': 'attachment; filename=partitura.pdf'
+        });
+
+        doc.pipe(res);
+      })
+      .catch(function(err) {
+        next(new Error('Could not perform export. ' + err.message));
       });
   });
 
