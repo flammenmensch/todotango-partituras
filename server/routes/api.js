@@ -11,7 +11,9 @@ router.route('/search')
     todotangoService
       .search(term)
       .then(function(response) {
-        res.json(response);
+        const result = response.hits.hits.map(i => i._source);
+
+        res.json(result);
       })
       .catch(function(err) {
         next(new Error('Could not perform search'));
