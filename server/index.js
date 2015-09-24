@@ -9,7 +9,7 @@ var routes = require('./routes');
 var app = express();
 app.use(compression());
 app.use(bodyParser.json());
-app.use('/', express.static(__dirname + '/public'));
+app.use('/', express.static('public'));
 app.use('/api/public', routes.publicApi);
 
 app.use(function(err, req, res, next) {
