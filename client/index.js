@@ -1,8 +1,16 @@
-"use strict";
+import 'whatwg-fetch';
 
 import React from 'react/addons';
+import { Provider } from 'react-redux';
+
+import configureStore from './stores';
+import App from './components/app';
+
+const store = configureStore();
 
 React.render(
-  <h1>Todotango Partituras</h1>,
-  document.querySelector('#app')
+  <Provider store={store}>
+    {() => <App />}
+  </Provider>,
+  document.querySelector('#app-container')
 );

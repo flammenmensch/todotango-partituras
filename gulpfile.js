@@ -9,10 +9,11 @@ var buffer = require('vinyl-buffer');
 var eslint = require('gulp-eslint');
 var runSequence = require('run-sequence');
 var del = require('del');
+var sass = require('gulp-sass');
 
 gulp.task('js', function() {
   return browserify({ entries: [ 'client/index.js' ] })
-    .transform(babelify)
+    .transform(babelify.configure({ optional: [ 'es7.objectRestSpread' ] }))
     .transform(reactify)
     .bundle()
     .pipe(source('bundle.js'))
@@ -21,10 +22,17 @@ gulp.task('js', function() {
     .pipe(gulp.dest('./public'));
 });
 
-gulp.task('build', [ 'js' ]);
+gulp.task('css', function() {
+  return gulp.src('sass/all.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('./public'));
+});
+
+gulp.task('build', [ 'js', 'css' ]);
 
 gulp.task('watch', function() {
   gulp.watch([ 'client/**/*.js' ], [ 'js' ]);
+  gulp.watch([ 'sass/**/*.scss' ], [ 'css' ]);
 });
 
 gulp.task('default', [ 'watch' ]);

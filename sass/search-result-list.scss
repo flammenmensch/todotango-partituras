@@ -1,0 +1,40 @@
+.search-result-list {
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+
+  &-item {
+    white-space: nowrap;
+
+    &-cover {
+      width: 162px;
+      height: 253px;
+    }
+
+    &-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  > li {
+    display: inline-flex;
+
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    width: 162px;
+
+    > a {
+      overflow: hidden;
+    }
+  }
+
+  > li:last-child {
+    margin-right: 0;
+  }
+}
